@@ -51,6 +51,51 @@ public class Playlist {
         }
     }
 
+    public void sortByArtist() {
+
+        for (int i = 0; i < songs.size() - 1; i++) {
+
+            int minIndex = i;
+
+            for (int j = i + 1; j < songs.size(); j++) {
+
+                if (songs.get(j).getArtist()
+                        .compareToIgnoreCase(songs.get(minIndex).getArtist()) < 0) {
+
+                    minIndex = j;
+                }
+            }
+
+            // swap
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(minIndex));
+            songs.set(minIndex, temp);
+        }
+    }
+
+    public void sortByArtistReverse() {
+
+        for (int i = 0; i < songs.size() - 1; i++) {
+
+            int maxIndex = i;
+
+            for (int j = i + 1; j < songs.size(); j++) {
+
+
+                if (songs.get(j).getArtist()
+                        .compareToIgnoreCase(songs.get(maxIndex).getArtist()) > 0) {
+                    maxIndex = j;
+                }
+            }
+
+
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(maxIndex));
+            songs.set(maxIndex, temp);
+        }
+    }
+
+
     public String toString(){
 
         String answer = "";
