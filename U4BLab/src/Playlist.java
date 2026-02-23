@@ -38,6 +38,18 @@ public class Playlist {
 
 
     }
+    public void genre(String targetGenre){
+        boolean isThere = false;
+        for (Song s : songs){
+            if (s.getGenre().equalsIgnoreCase(targetGenre)) {
+                System.out.println(s);
+                isThere = true;
+            }
+        }
+        if(!isThere){
+            System.out.println("No songs found in genre " + targetGenre);
+        }
+    }
 
     public String toString(){
 
