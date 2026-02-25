@@ -26,6 +26,11 @@ public class SpotifyTester {
         System.out.println("--------##- Playlist AFTER Sorting by Artist in reverse( Z-A) -------");
         System.out.println(playlist1);
 
+        playlist1.sortByReleaseYear();
+
+        System.out.println("---- AFTER SORT BY YEAR (Old  to New) ----");
+        System.out.println(playlist1);
+
 
         System.out.println("Enter genre");
         String genres = test.nextLine();
