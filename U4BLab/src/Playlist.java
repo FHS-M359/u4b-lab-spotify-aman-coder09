@@ -111,6 +111,25 @@ public class Playlist {
         }
     }
 
+    public void sortByReleaseYearReverse() {
+
+        for (int i = 1; i < songs.size(); i++) {
+
+            Song key = songs.get(i);
+            int j = i - 1;
+
+            // notice the < instead of >
+            while (j >= 0 && songs.get(j).getReleaseYear() < key.getReleaseYear()) {
+                songs.set(j + 1, songs.get(j));
+                j--;
+            }
+
+            songs.set(j + 1, key);
+        }
+    }
+
+
+
 
 
     public String toString(){
