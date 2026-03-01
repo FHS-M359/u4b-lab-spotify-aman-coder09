@@ -100,32 +100,34 @@ public class Playlist {
 
         for (int i = 1; i < songs.size(); i++) {
 
-            Song key = songs.get(i);
-            int j = i - 1;
+            Song tempValue = songs.get(i);
+            int position = i;
 
-            while (j >= 0 && songs.get(j).getReleaseYear() > key.getReleaseYear()) {
-                songs.set(j + 1, songs.get(j));
-                j--;
+            while (position > 0 && songs.get(position-1).getReleaseYear() > tempValue.getReleaseYear()){
+
+                songs.set(position , songs.get(position-1));
+                position--;
             }
 
-            songs.set(j + 1, key);
-        }
+            songs.set(position,tempValue);
+            }
+
     }
 
     public void sortByReleaseReverse() {
 
         for (int i = 1; i < songs.size(); i++) {
 
-            Song key = songs.get(i);
-            int j = i - 1;
+            Song tempValue = songs.get(i);
+            int position = i;
 
-            // notice the < instead of >
-            while (j >= 0 && songs.get(j).getReleaseYear() < key.getReleaseYear()) {
-                songs.set(j + 1, songs.get(j));
-                j--;
+            while (position > 0 && songs.get(position-1).getReleaseYear() < tempValue.getReleaseYear()){
+
+                songs.set(position , songs.get(position-1));
+                position--;
             }
 
-            songs.set(j + 1, key);
+            songs.set(position,tempValue);
         }
     }
 
