@@ -13,7 +13,7 @@ public class SpotifyTester {
 
 
 // Sort by artist
-        playlist1.sortByArtist();
+        playlist1.Artist();
 
 
 
@@ -21,17 +21,17 @@ public class SpotifyTester {
         System.out.println(playlist1);
 
 
-        playlist1.sortByArtistReverse();
+        playlist1.ArtistReverse();
 
         System.out.println("--------##- Playlist AFTER Sorting by Artist in reverse( Z-A) -------");
         System.out.println(playlist1);
 
-        playlist1.sortByReleaseYear();
+        playlist1.sortByRelease();
 
         System.out.println("---- AFTER SORT BY YEAR (Old  to New) ----");
         System.out.println(playlist1);
 
-        playlist1.sortByReleaseYearReverse();
+        playlist1.sortByReleaseReverse();
 
         System.out.println("---- AFTER SORT BY YEAR (New  to old) ----");
         System.out.println(playlist1);

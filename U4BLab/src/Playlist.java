@@ -38,20 +38,20 @@ public class Playlist {
 
 
     }
-    public void genre(String targetGenre){
+    public void genre(String Genre){
         boolean isThere = false;
         for (Song s : songs){
-            if (s.getGenre().equalsIgnoreCase(targetGenre)) {
+            if (s.getGenre().equalsIgnoreCase(Genre)) {
                 System.out.println(s);
                 isThere = true;
             }
         }
         if(!isThere){
-            System.out.println("No songs found in genre " + targetGenre);
+            System.out.println("No songs found in genre " + Genre);
         }
     }
 
-    public void sortByArtist() {
+    public void Artist() {
 
         for (int i = 0; i < songs.size() - 1; i++) {
 
@@ -59,8 +59,9 @@ public class Playlist {
 
             for (int j = i + 1; j < songs.size(); j++) {
 
-                if (songs.get(j).getArtist()
-                        .compareToIgnoreCase(songs.get(minIndex).getArtist()) < 0) {
+                String cArtist = songs.get(j).getArtist();
+                String minArtist = songs.get(minIndex).getArtist();
+                if (cArtist.compareToIgnoreCase(minArtist) < 0 ) {
 
                     minIndex = j;
                 }
@@ -73,17 +74,17 @@ public class Playlist {
         }
     }
 
-    public void sortByArtistReverse() {
+    public void ArtistReverse() {
 
         for (int i = 0; i < songs.size() - 1; i++) {
 
             int maxIndex = i;
 
             for (int j = i + 1; j < songs.size(); j++) {
+                String cArtist = songs.get(j).getArtist();
+                String minArtist = songs.get(maxIndex).getArtist();
 
-
-                if (songs.get(j).getArtist()
-                        .compareToIgnoreCase(songs.get(maxIndex).getArtist()) > 0) {
+                if (cArtist.compareToIgnoreCase(minArtist) > 0) {
                     maxIndex = j;
                 }
             }
@@ -95,7 +96,7 @@ public class Playlist {
         }
     }
 
-    public void sortByReleaseYear() {
+    public void sortByRelease() {
 
         for (int i = 1; i < songs.size(); i++) {
 
@@ -111,7 +112,7 @@ public class Playlist {
         }
     }
 
-    public void sortByReleaseYearReverse() {
+    public void sortByReleaseReverse() {
 
         for (int i = 1; i < songs.size(); i++) {
 
