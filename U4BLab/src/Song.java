@@ -6,6 +6,7 @@ public class Song {
     private int releaseYear;
     private String genre;
     private String artist;
+
     public Song(String artist ,String title , String album,int durationSeconds,int releaseYear,String genre){
         this.title = title;
         this.album=album;
@@ -64,7 +65,6 @@ public class Song {
     }
 
     public String toString(){
-        return String.format("%-25s %-20s %-25s %-8d %-8d %-15s",
-                title, artist, album, durationSeconds, releaseYear, genre);
+        return String.format("%-25s %-20s %-25s %-8d %-8d %-15s",title, artist, album, durationSeconds, releaseYear, genre);
     }
 }

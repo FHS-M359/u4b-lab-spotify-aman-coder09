@@ -4,7 +4,6 @@ Juicy,The Notorious B.I.G.,Ready to Die,300,1994,Hip-Hop
 Mmmbop,Hanson,MmmBop,210,1997,Pop
 Bye Bye Bye,*NSYNC,No Strings Attached,210,2000,Pop
 Fallin',Alicia Keys,Songs in A Minor,210,2001,R&B
-Hey Ya!,Outkast,Speakerboxxx/The Love Below,240,2003,Hip-Hop
 Drop It Like It's Hot,Snoop Dogg,Single,210,2004,Hip-Hop
 SexyBack,Justin Timberlake,FutureSex/LoveSounds,197,2006,Pop
 Umbrella,Rihanna,Good Girl Gone Bad,275,2007,Pop

@@ -2,49 +2,106 @@ import java.util.Scanner;
 
 public class SpotifyTester {
 
+    public static final int ARTIST_ATOZ = 1;
+    public static final int ARTIST_ZTOA =2;
+    public static final int YEAR_OLDTONEW = 3;
+    public static final int YEAR_NEWTOOLD=4;
+    public static final int SEARCH_GENRE = 5;
+    public static final int DISPLAY_ALL =6;
+    public static final int QUITTING = 7;
+
     //HI
     public static void main(String[] args) throws Exception {
         Playlist playlist1 = new Playlist();
-        playlist1.readingSongs("H:\\M359 SINGH\\SPOTIFY-REPO\\SPOTIFY\\u4b-lab-spotify-aman-coder09\\U4BLab\\spotify_unique_years_artists.txt");
+        playlist1.readingSongs("C:\\APCSA\\M359-WORKREPO\\u4b-lab-spotify-aman-coder09\\U4BLab\\spotify_unique_years_artists.txt");
 
-        System.out.println(playlist1);
+
 
         Scanner test = new Scanner(System.in);
 
 
+        int connect = 0;
+        while (connect != QUITTING) {
 // Sort by artist
-        playlist1.Artist();
+            tablePrint();
+
+            connect = connectNumChecker(test);
+            if (connect == ARTIST_ATOZ) {
+                playlist1.Artist();
+                System.out.println("--------##- Playlist AFTER Sorting by Artist (A-Z) -------");
+                System.out.println(playlist1);
+            } else if (connect == ARTIST_ZTOA) {
+                playlist1.ArtistReverse();
+                System.out.println("--------##- Playlist AFTER Sorting by Artist in reverse( Z-A) -------");
+                System.out.println(playlist1);
+            } else if (connect == YEAR_OLDTONEW) {
+                playlist1.sortByRelease();
+
+                System.out.println("---- AFTER SORT BY YEAR (Old  to New) ----");
+                System.out.println(playlist1);
+            } else if (connect == YEAR_NEWTOOLD) {
+                playlist1.sortByReleaseReverse();
+
+                System.out.println("---- AFTER SORT BY YEAR (New  to old) ----");
+                System.out.println(playlist1);
+            } else if (connect ==SEARCH_GENRE) {
+                System.out.println("Enter genre");
+                String genres = test.nextLine();
+
+                playlist1.genre(genres);
+            }
+
+            else if (connect ==DISPLAY_ALL){
+                System.out.println(playlist1);
+            }
+            else if(connect == QUITTING){
+                System.out.println("Byeeee and Rock&Roll🤘🤘🤘");
+            }
 
 
 
-        System.out.println("--------##- Playlist AFTER Sorting by Artist (A-Z) -------");
-        System.out.println(playlist1);
 
-
-        playlist1.ArtistReverse();
-
-        System.out.println("--------##- Playlist AFTER Sorting by Artist in reverse( Z-A) -------");
-        System.out.println(playlist1);
-
-        playlist1.sortByRelease();
-
-        System.out.println("---- AFTER SORT BY YEAR (Old  to New) ----");
-        System.out.println(playlist1);
-
-        playlist1.sortByReleaseReverse();
-
-        System.out.println("---- AFTER SORT BY YEAR (New  to old) ----");
-        System.out.println(playlist1);
-
-
-
-
-        System.out.println("Enter genre");
-        String genres = test.nextLine();
-
-        playlist1.genre(genres);
-
+        }
         test.close();
+    }
+    public static void tablePrint(){
+        System.out.println("===== Spotify Menu ====");
+        System.out.println("1 - Sort by Artist(A -> Z");
+        System.out.println("2 - Sort by Artist(Z -> A");
+        System.out.println("3 - Sort by year(OLD -> NEW)");
+        System.out.println("4 - Sort by year(NEW -> OLD)");
+        System.out.println("5 - Search by genre");
+        System.out.println("6 - Display all songs");
+        System.out.println("7 - quit");
+        System.out.println("Enter choice (1-7)");
 
+
+
+
+
+
+
+    }
+
+    public static int connectNumChecker(Scanner input){
+        int connect = 0 ;
+        boolean isCorrect = false;
+
+        while(!isCorrect){
+            try{
+                connect = Integer.parseInt(input.nextLine());
+
+                if(connect>= 1 && connect< 8){
+                    isCorrect = true;
+                }
+                else {
+                    System.out.println("Not a Valid choice: Enter a number between 1-7");
+                }
+            }
+            catch (NumberFormatException e){
+                System.out.println("Invalid Choice . Enter Number 1-7 ");
+            }
+        }
+        return connect;
     }
 }
