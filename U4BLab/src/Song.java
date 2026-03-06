@@ -7,6 +7,10 @@ public class Song {
     private String genre;
     private String artist;
 
+    /**
+     * makes a song object with the vars
+     * @param - artist,title,album , durationSeconds , releaseyear , genre
+     */
     public Song(String artist ,String title , String album,int durationSeconds,int releaseYear,String genre){
         this.title = title;
         this.album=album;
@@ -64,6 +68,11 @@ public class Song {
         this.artist = artist;
     }
 
+    /**
+     * Returns a formatted string ... with proper spacing .
+     * @param -- all the song vars
+     * @return formatted string
+     */
     public String toString(){
         return String.format("%-25s %-20s %-25s %-8d %-8d %-15s",title, artist, album, durationSeconds, releaseYear, genre);
     }

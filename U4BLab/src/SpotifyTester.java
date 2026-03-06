@@ -10,21 +10,20 @@ public class SpotifyTester {
     public static final int DISPLAY_ALL =6;
     public static final int QUITTING = 7;
 
-    //HI
+
     public static void main(String[] args) throws Exception {
         Playlist playlist1 = new Playlist();
         playlist1.readingSongs("C:\\APCSA\\M359-WORKREPO\\u4b-lab-spotify-aman-coder09\\U4BLab\\spotify_unique_years_artists.txt");
 
-
-
         Scanner test = new Scanner(System.in);
 
-
+        //var that is gonna be the thing we type to get the info
         int connect = 0;
         while (connect != QUITTING) {
-// Sort by artist
+            //printins the menu
             tablePrint();
 
+            //use try/catch method to see if the input is valid or no .....
             connect = connectNumChecker(test);
             if (connect == ARTIST_ATOZ) {
                 playlist1.Artist();
@@ -64,10 +63,15 @@ public class SpotifyTester {
         }
         test.close();
     }
+    /**
+     * A function that will be called in the main() printing the meneu
+     * @param--  no parameters
+     * @return returns the diffrence choices availaible to you
+     */
     public static void tablePrint(){
         System.out.println("===== Spotify Menu ====");
-        System.out.println("1 - Sort by Artist(A -> Z");
-        System.out.println("2 - Sort by Artist(Z -> A");
+        System.out.println("1 - Sort by Artist(A -> Z)");
+        System.out.println("2 - Sort by Artist(Z -> A)");
         System.out.println("3 - Sort by year(OLD -> NEW)");
         System.out.println("4 - Sort by year(NEW -> OLD)");
         System.out.println("5 - Search by genre");
@@ -82,13 +86,18 @@ public class SpotifyTester {
 
 
     }
-
+    /**
+     * Returns a int which is valid .
+     * @param - Scanner is the parameter
+     * @return returns the connect/ the int
+     */
     public static int connectNumChecker(Scanner input){
         int connect = 0 ;
         boolean isCorrect = false;
 
         while(!isCorrect){
             try{
+                //parseInt line from the web
                 connect = Integer.parseInt(input.nextLine());
 
                 if(connect>= 1 && connect< 8){

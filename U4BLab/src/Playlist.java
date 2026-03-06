@@ -6,10 +6,19 @@ public class Playlist {
 
     private ArrayList<Song> songs;
 
+    /**
+     * makes a playlist object
+     * @param - none
+     */
     public Playlist(){
         songs = new ArrayList<Song>();
     }
 
+    /**
+     * will be dividing the line into diff categories .. into arraylist with the help of split()
+     * @param - filename
+     * @return returns a void
+     */
     public void readingSongs(String filename) throws Exception{
 
         Scanner inF = new Scanner(new File(filename));
@@ -34,10 +43,12 @@ public class Playlist {
         inF.close();
 
 
-
-
-
     }
+    /**
+     * function used to check if the genre that was enter by the user is in the txt file or not
+     * @param - genre and isThere
+     * @return weather the genre is there (isThere = true) or else prints astatemnts
+     */
     public void genre(String Genre){
         boolean isThere = false;
         for (Song s : songs){
@@ -49,8 +60,16 @@ public class Playlist {
         if(!isThere){
             System.out.println("No songs found in genre " + Genre);
         }
+
     }
 
+    /**
+     * will be sorting the artist in A-Z USING SELECTION SORT
+     * @param - cArtist, minArtist , minIndex
+     * @return returns the sorted list
+     * source - INclassroom coding example file
+     * using ignoreCase so the input is not case sensivitve
+     */
     public void Artist() {
 
         for (int i = 0; i < songs.size() - 1; i++) {
@@ -62,7 +81,6 @@ public class Playlist {
                 String cArtist = songs.get(j).getArtist();
                 String minArtist = songs.get(minIndex).getArtist();
                 if (cArtist.compareToIgnoreCase(minArtist) < 0 ) {
-
                     minIndex = j;
                 }
             }
@@ -74,6 +92,13 @@ public class Playlist {
         }
     }
 
+    /**
+     * will be sorting the artist in Z-A USING SELECTION SORT
+     * @param - cArtist, minArtist , minIndex
+     * @return returns the sorted list
+     * source - INclassroom coding example file
+     * using ignoreCase so the input is not case sensivitve
+     */
     public void ArtistReverse() {
 
         for (int i = 0; i < songs.size() - 1; i++) {
@@ -89,13 +114,19 @@ public class Playlist {
                 }
             }
 
-
+            //SWAP
             Song temp = songs.get(i);
             songs.set(i, songs.get(maxIndex));
             songs.set(maxIndex, temp);
         }
     }
 
+    /**
+     * will be sorting the LIST USING RELEASE YEAR USING INSERTION SORT
+     * @param - tempValue, position ,
+     * @return returns the sorted list by year
+     * source - INclassroom coding example file GIVEN BY DeSteph
+     */
     public void sortByRelease() {
 
         for (int i = 1; i < songs.size(); i++) {
@@ -114,6 +145,12 @@ public class Playlist {
 
     }
 
+    /**
+     * will be sorting the LIST USING RELEASE YEAR USING INSERTION SORT in reverse
+     * @param - tempValue, position ,
+     * @return returns the sorted list by year in reverse
+     * source - INclassroom coding example file GIVEN BY DeSteph
+     */
     public void sortByReleaseReverse() {
 
         for (int i = 1; i < songs.size(); i++) {
@@ -131,6 +168,12 @@ public class Playlist {
         }
     }
 
+    /**
+     * returns string contatining all the songs
+     * @param - answer,
+     * @return retruns the answer string
+
+     */
     public String toString(){
 
         String answer = "";
